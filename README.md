@@ -1,6 +1,6 @@
 # barley-ticket-grabbing
 
-### 1.操作方式：
+### 操作方式：
 #### 1.将 config.ini 文件中的 url 后面的内容替换为想要抢票的网站,如 url = xxxxxx
 
 #### 2.运行```python3 ticket.py```,允许进网
