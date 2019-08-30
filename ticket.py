@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# https://github.com/sinxuy/Damai/blob/master/damai.py
-# https://github.com/WhisperLoli/DaMai/blob/master/selenium/GetTicket.ipynb
 import os
 import time
 import pickle
@@ -30,8 +28,8 @@ option = ChromeOptions()
 # option.add_argument('user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"')
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 
-name = "LzyRapx"
-phone = "13642598033"
+name = "xxxx"
+phone = "xxxx"
 
 class Concert(object):
     def __init__(self):
