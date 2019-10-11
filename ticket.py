@@ -36,7 +36,7 @@ option = ChromeOptions()
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 
 name = "LzyRapx"
-phone = "13642598033"
+phone = "phone number"
 
 class Concert(object):
     def __init__(self):
