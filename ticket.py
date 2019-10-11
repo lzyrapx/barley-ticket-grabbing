@@ -1,3 +1,10 @@
+'''
+@Descripttion: boring life && prevent age-related memory loss.
+@Version: 1.0.0
+@Author: zhaoyang.liang
+@Github: https://github.com/LzyRapx
+@Date: 2019-07-06 21:32:39
+'''
 # -*- coding: utf-8 -*-
 
 import os
@@ -28,8 +35,8 @@ option = ChromeOptions()
 # option.add_argument('user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36"')
 option.add_experimental_option('excludeSwitches', ['enable-automation'])
 
-name = "xxxx"
-phone = "xxxx"
+name = "LzyRapx"
+phone = "13642598033"
 
 class Concert(object):
     def __init__(self):
@@ -90,14 +97,11 @@ class Concert(object):
 
     def choose_ticket(self):
         if self.status == 2:
-            # self.num = 1
-
             print("=" * 30)
             print("###开始进行日期及票价选择###")
             while self.driver.title.find('确认订单') == -1:
                 buybutton = self.driver.find_element_by_class_name('buybtn').text
-                # self.driver.refresh()
-
+                print("buybutton = ", buybutton)
                 if buybutton == "即将开抢":
                     self.status = 2
                     self.driver.get(target_url)
@@ -116,7 +120,6 @@ class Concert(object):
                     num[0].click()
                     self.driver.find_element_by_class_name('buybtn').click()
                     self.status = 3
-                    # self.num = 1
 
                 elif buybutton == "立即购买":
                     # 指定票价
@@ -137,10 +140,10 @@ class Concert(object):
                     # 指定票价
                     price = self.driver.find_elements('css selector','.skuname')
                     price[int(price_number)].click()
-                    print("price number = ", price[int(price_number)])
+                    # print("price number = ", price[int(price_number)])
                     # 指定票数
                     num = self.driver.find_elements('css selector','.cafe-c-input-number-handler.cafe-c-input-number-handler-up')
-                    print("num = ", num)
+                    # print("num = ", num)
                     num[0].click()
 
                     self.driver.find_element_by_class_name('buybtn').click()
@@ -149,20 +152,17 @@ class Concert(object):
                 elif buybutton == "提交缺货登记":
                     # 指定票价
                     price = self.driver.find_elements('css selector','.skuname')
-                    print("price = ", price[2])
+                    # print("price = ", price[2])
                     price[int(price_number)].click()
-                    print("price number = ", price[int(price_number)])
+                    # print("price number = ", price[int(price_number)])
 
-                    # 指定票数
-                    num = self.driver.find_elements('css selector','.cafe-c-input-number-handler.cafe-c-input-number-handler-up')
-                    print("num = ", num)
-                    num[0].click()
                     self.driver.find_element_by_class_name('buybtn').click()
-                    print('###抢票失败，请手动提交缺货登记###')
+                    # print('###抢票失败，请手动提交缺货登记###')
                     self.status = 6
                     # break
 
                 title = self.driver.title
+                print("title = ", title)
                 if title == "确认订单":
                     self.check_order()
 
@@ -171,11 +171,15 @@ class Concert(object):
                     break
 
     def check_order(self):
-        if self.status in [3, 6]:
+        print("status = ", self.status)
+        if self.status in [3, 4, 5, 6]:
+            print("ticket_number = ", ticket_number)
+            print(type(ticket_number))
             if(ticket_number == '1'):
                 stat = self.driver.find_elements_by_xpath(
                             '//div[@id="confirmOrder_1"]/div[2]/div[2]/div[1]/div[1]/label/span/input')[
                             0]
+                print("stat = ", stat)
                 while(stat.get_attribute('aria-checked') == 'false'):
                     time.sleep(0.5)
                     stat = self.driver.find_elements_by_xpath(
@@ -200,7 +204,7 @@ if __name__ == '__main__':
     con.enter_concert()
     con.choose_ticket()
 
-    duration = 10000
+    duration = 1000
     freq = 600
     # while(1):
     #     winsound.Beep(freq, duration)
