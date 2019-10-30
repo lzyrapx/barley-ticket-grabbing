@@ -9,7 +9,7 @@
 #### 1. chrome 浏览器 和 chromedriver 的版本要一致。
 #### 2. chromedriver下载地址: http://chromedriver.storage.googleapis.com/index.html
 ### 操作方式：
-#### 1.将 config.ini 文件中的 url 后面的内容替换为想要抢票的网站,如 url = xxxxxx,price_number 是顺数第 price_number + 1 的票价。number 暂时只能为 1。因为抢一张票的成功概率大很多。
+#### 1. 将 config.ini 文件中的 url 后面的内容替换为想要抢票的网站,如 url = xxxxxx,price_number 是顺数第 price_number + 1 的票价。number 暂时只能为 1。因为抢一张票的成功概率大很多。
 
 #### 2. 运行```python3 ticket.py```, chrome自动弹出。
 
