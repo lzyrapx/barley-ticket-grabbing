@@ -1,14 +1,19 @@
+<!--
+ * @Author: zhaoyang.liang
+ * @Github: https://github.com/LzyRapx
+ * @Date: 2019-10-30 22:24:47
+ -->
 # barley-ticket-grabbing
 
 ### 前提: 
 #### 1. chrome 浏览器 和 chromedriver 的版本要一致。
 #### 2. chromedriver下载地址: http://chromedriver.storage.googleapis.com/index.html
 ### 操作方式：
-#### 1.将 config.ini 文件中的 url 后面的内容替换为想要抢票的网站,如 url = xxxxxx,price_number 是顺数第 price_number + 1 的票价。number 暂时只能为 1.
+#### 1.将 config.ini 文件中的 url 后面的内容替换为想要抢票的网站,如 url = xxxxxx,price_number 是顺数第 price_number + 1 的票价。number 暂时只能为 1. 因为抢一张票的成功概率大很多。
 
-#### 2.运行```python3 ticket.py```,允许进网
+#### 2.运行```python3 ticket.py```, chrome自动弹出。
 
-#### 3.初始为大麦网主页，点击登录，跳转后扫码登录（仅此一次，如果需要换号删除文件夹下的 cookies.pkl）
+#### 3.初始为大麦网主页，点击登录，跳转后扫码登录（只需一次，cookies.pkl生成后就无需此步骤。如果需要换号删除文件夹下的 cookies.pkl）
 
 #### 4.开始抢票，在未放票前，每秒刷新一次网站，放票开始，进行抢票。
 

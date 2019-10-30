@@ -1,13 +1,12 @@
 '''
-@Descripttion: boring life && prevent age-related memory loss.
-@Version: 1.0.0
 @Author: zhaoyang.liang
 @Github: https://github.com/LzyRapx
-@Date: 2019-07-06 21:32:39
+@Date: 2019-10-30 22:24:54
 '''
 # -*- coding: utf-8 -*-
 
 import os
+
 import time
 import pickle
 # import winsound
@@ -89,7 +88,8 @@ class Concert(object):
 
     def enter_concert(self):
         print('###打开浏览器，进入大麦网###')
-        self.driver = webdriver.Chrome(executable_path="/Users/lzyrapx/Documents/Python/damai/chromedriver", options=option)
+        self.driver = webdriver.Chrome(executable_path="/Users/lzyrapx/Documents/Python/barley-ticket-grabbing/chromedriver", options=option)
+        self.driver.set_window_size(1500, 900)
         self.login()
         self.driver.refresh()
         self.status = 2
@@ -174,7 +174,6 @@ class Concert(object):
         print("status = ", self.status)
         if self.status in [3, 4, 5, 6]:
             print("ticket_number = ", ticket_number)
-            print(type(ticket_number))
             if(ticket_number == '1'):
                 stat = self.driver.find_elements_by_xpath(
                             '//div[@id="confirmOrder_1"]/div[2]/div[2]/div[1]/div[1]/label/span/input')[
